@@ -1,5 +1,6 @@
-import { lazy } from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom';
+// import { lazy } from 'react';
+import { Route, Routes } from 'react-router-dom';
+// import { Navigate, Route, Routes } from 'react-router-dom';
 import HomePage from 'pages/HomePage/HomePage';
 // import SharedLayout from './SharedLayout/SharedLayout';
 
