@@ -1,14 +1,15 @@
 {
   "files": {
-    "main.css": "/advert/static/css/main.53ef069b.css",
-    "main.js": "/advert/static/js/main.6628bd71.js",
+    "main.css": "/advert/static/css/main.3cd9360c.css",
+    "main.js": "/advert/static/js/main.19aff6f5.js",
     "static/media/background.jpg": "/advert/static/media/background.821512fa81982cd61f65.jpg",
     "index.html": "/advert/index.html",
-    "main.53ef069b.css.map": "/advert/static/css/main.53ef069b.css.map",
-    "main.6628bd71.js.map": "/advert/static/js/main.6628bd71.js.map"
+    "static/media/chevron-down.svg": "/advert/static/media/chevron-down.b66f095267e47bb0746b07487554158b.svg",
+    "main.3cd9360c.css.map": "/advert/static/css/main.3cd9360c.css.map",
+    "main.19aff6f5.js.map": "/advert/static/js/main.19aff6f5.js.map"
   },
   "entrypoints": [
-    "static/css/main.53ef069b.css",
-    "static/js/main.6628bd71.js"
+    "static/css/main.3cd9360c.css",
+    "static/js/main.19aff6f5.js"
   ]
 }
