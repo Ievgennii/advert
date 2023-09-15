@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import useMountTransition from 'hooks/useMountTransition';
+// import useMountTransition from 'hooks/useMountTransition';
 import css from './Modal.module.css';
 
 export default function Modal({ onClose, children, active }) {
   const modalRoot = document.querySelector('#modal-root');
-  const isMounted = useMountTransition(active, 300);
+  // const isMounted = useMountTransition(active, 300);
 
   useEffect(() => {
     window.addEventListener('keydown', closeOnEsc);
@@ -28,16 +28,15 @@ export default function Modal({ onClose, children, active }) {
     }
   };
 
-  const animatedModal = {
-    transform: `scale( ${isMounted ? '1' : '0'})`,
-    opacity: isMounted ? 1 : 0,
-  };
+  // const animatedModal = {
+  //   transform: `scale( ${isMounted ? '1' : '0'})`,
+  //   opacity: isMounted ? 1 : 0,
+  // };
 
   return createPortal(
     <div className={css.Overlay} onClick={onClickClose}>
-      <div style={animatedModal} className={css.Modal}>
-        {children}
-      </div>
+      {/* <div style={animatedModal} className={css.Modal}> */}
+      <div className={css.Modal}>{children}</div>
     </div>,
     modalRoot
   );

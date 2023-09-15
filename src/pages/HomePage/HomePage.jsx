@@ -4,7 +4,7 @@ import css from './HomePage.module.css';
 export default function HomePage() {
   return (
     <main className={css.mainContainer}>
-      <div class="conteiner">
+      <div>
         <h1 className={css.mainTitle}>car rental for you</h1>
         <p className={css.bottomText}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. At dolorem
