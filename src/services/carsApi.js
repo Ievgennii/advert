@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { readFromLS, writeToLS } from './localStoreApi';
-// import smartFilter from './smartFilter';
+import smartFilter from './smartFilter';
 axios.defaults.baseURL =
   'https://64fe20da596493f7af7ef023.mockapi.io/advert/catalog';
 //all + pages
@@ -38,17 +38,17 @@ export const search = async (obj, page, shouldUpdateCache) => {
   if (shouldUpdateCache) {
     const defaultRes = await getAll();
     writeToLS('cars', defaultRes.data);
-    // const data = readFromLS('cars');
-    // const result = await smartFilter(data, obj);
-    // return result.slice(0, page * 8);
-    const data = await readFromLS('cars');
-    return data.slice(0, page * 8);
+    const data = readFromLS('cars');
+    const result = await smartFilter(data, obj);
+    return result.slice(0, page * 8);
+    // const data = await readFromLS('cars');
+    // return data.slice(0, page * 8);
   }
   if (readFromLS('cars')) {
-    // const data = readFromLS('cars');
-    // const result = await smartFilter(data, obj);
-    // return result.slice(0, page * 8);
-    const data = await readFromLS('cars');
-    return data.slice(0, page * 8);
+    const data = readFromLS('cars');
+    const result = await smartFilter(data, obj);
+    return result.slice(0, page * 8);
+    // const data = await readFromLS('cars');
+    // return data.slice(0, page * 8);
   }
 };
