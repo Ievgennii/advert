@@ -9,19 +9,19 @@ const SharedLayout = () => {
 
   return (
     <section>
-      {/* <NavMenu isActive={isMenuOpen} setClose={setIsMenuOpen} />
-      <MenuIcon isActive={isMenuOpen} onClick={setIsMenuOpen} /> */}
-      <nav className={css.navBar}>
-        <Link to={'/'} className="button-primary">
-          Home
-        </Link>
-        <Link to={'/catalog'} className="button-primary">
-          Catalog
-        </Link>
-        <Link to={'/favorites'} className="button-primary">
-          Favorites
-        </Link>
-      </nav>
+      <div className={css.section}>
+        <nav className={css.navBar}>
+          <Link to={'/'} className="button-primary">
+            Home
+          </Link>
+          <Link to={'/catalog'} className="button-primary">
+            Catalog
+          </Link>
+          <Link to={'/favorites'} className="button-primary">
+            Favorites
+          </Link>
+        </nav>
+      </div>
       <main className={css.main}>
         <Suspense>
           <Outlet />

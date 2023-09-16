@@ -1,15 +1,17 @@
 .section {
   max-width: 1440px;
   display: flex;
+  justify-content: center;
 }
 
 .navBar {
-  padding-left: 128px;
-  padding-right: 128px;
+  padding-left: 162px;
+  padding-right: 162px;
   padding-top: 20px;
   display: flex;
   flex-direction: row;
   gap: 25px;
+  width: 859px;
 }
 .main {
   max-width: 1440px;
