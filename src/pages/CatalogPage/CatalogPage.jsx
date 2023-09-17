@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react';
 import * as API from '../../services/carsApi.js';
 import AdvertCard from 'components/AdvertCard/AdvertCard.jsx';
 import css from './CalatogPage.module.css';
+
 import Modal from 'components/Modal/Modal';
 import ModalCard from 'components/Modal/ModalCard/ModalCard.jsx';
 import SearchBar from 'components/SearchBar/SearchBar.jsx';
+
 import { readFromLS, writeToLS } from 'services/localStoreApi.js';
 
 export default function CatalogPage() {
@@ -110,11 +112,7 @@ export default function CatalogPage() {
           <li></li>
         </ul>
       )}
-      {adverts && adverts.length === 0 && (
-        <div>
-          <h2>'The specified search result is not found'</h2>
-        </div>
-      )}
+
       {showLoadMore && adverts?.length > 7 && (
         <div className={css.btnContainer}>
           <button
@@ -127,9 +125,7 @@ export default function CatalogPage() {
       )}
       {adverts && adverts.length === 0 && (
         <div className={css.divTitle}>
-          <p className={css.favTitle}>
-            Unfortunately the directory is currently empty
-          </p>
+          <p className={css.favTitle}>Unfortunately nothing was found</p>
         </div>
       )}
       {showModal && (
