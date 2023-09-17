@@ -2,14 +2,12 @@ import { useState, useEffect } from 'react';
 import * as API from '../../services/carsApi.js';
 import AdvertCard from 'components/AdvertCard/AdvertCard.jsx';
 import css from './CalatogPage.module.css';
-import LoadMore from 'components/LoadMore/LoadMore.jsx';
+
 import Modal from 'components/Modal/Modal';
 import ModalCard from 'components/Modal/ModalCard/ModalCard.jsx';
 import SearchBar from 'components/SearchBar/SearchBar.jsx';
-// import Skeleton from 'components/Skeleton/Skeleton.jsx';
+
 import { readFromLS, writeToLS } from 'services/localStoreApi.js';
-// import NotFoundComponent from 'components/NotFoundComponent/NotFoundComponent.jsx';
-// import { sortingByPrice } from 'utils/sorting.js';
 
 export default function CatalogPage() {
   const [adverts, setAdverts] = useState(null);
@@ -125,7 +123,14 @@ export default function CatalogPage() {
         </div>
       )}
       {showLoadMore && adverts?.length > 7 && (
-        <LoadMore onClick={() => setPage(prev => prev + 1)} />
+        <div className={css.btnContainer}>
+          <button
+            className="button-secondary"
+            onClick={() => setPage(prev => prev + 1)}
+          >
+            Load more
+          </button>
+        </div>
       )}
       {showModal && (
         <Modal onClose={() => setShowModal(prev => !prev)} active={showModal}>

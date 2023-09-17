@@ -13,7 +13,7 @@ export default function HomePage() {
         </p>
 
         <Link to={'/catalog'} className="button-primary btn-home">
-          Book Now
+          Catalog
         </Link>
       </div>
     </main>

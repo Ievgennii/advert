@@ -4,8 +4,6 @@ import * as API from '../../services/carsApi';
 import css from './FavoritesPage.module.css';
 import Modal from 'components/Modal/Modal';
 import ModalCard from 'components/Modal/ModalCard/ModalCard';
-import LoadMore from 'components/LoadMore/LoadMore';
-// import Skeleton from 'components/Skeleton/Skeleton.jsx';
 
 export default function FavoritesPage() {
   const [favCards, setFavCards] = useState(null);
@@ -88,6 +86,11 @@ export default function FavoritesPage() {
           </ul>
         </div>
       )}
+      {favCards && favCards.length === 0 && (
+        <div className={css.divTitle}>
+          <p className={css.favTitle}>You don't have favorite cards yet</p>
+        </div>
+      )}
       {showModal && (
         <Modal onClose={() => setShowModal(prev => !prev)} active={showModal}>
           <ModalCard
@@ -97,7 +100,14 @@ export default function FavoritesPage() {
         </Modal>
       )}
       {showLoadMore && favCards?.length > 7 && (
-        <LoadMore onClick={() => setPage(prev => prev + 1)} />
+        <div className={css.btnContainer}>
+          <button
+            className="button-secondary"
+            onClick={() => setPage(prev => prev + 1)}
+          >
+            Load more
+          </button>
+        </div>
       )}
     </>
   );
