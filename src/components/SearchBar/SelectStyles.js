@@ -50,9 +50,9 @@ export const carMenuStyles = {
       width: '8px',
       height: '110px',
 
-      position: 'relative', // Абсолютное позиционирование
-      right: '-4px', // Отступ с правой стороны
-      top: 0, // Верхний отступ
+      position: 'relative',
+      right: '-4px',
+      top: 0,
     },
     '&::-webkit-scrollbar-thumb': {
       borderRadius: '10px',

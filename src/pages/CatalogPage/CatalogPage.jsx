@@ -2,11 +2,9 @@ import { useState, useEffect } from 'react';
 import * as API from '../../services/carsApi.js';
 import AdvertCard from 'components/AdvertCard/AdvertCard.jsx';
 import css from './CalatogPage.module.css';
-
 import Modal from 'components/Modal/Modal';
 import ModalCard from 'components/Modal/ModalCard/ModalCard.jsx';
 import SearchBar from 'components/SearchBar/SearchBar.jsx';
-
 import { readFromLS, writeToLS } from 'services/localStoreApi.js';
 
 export default function CatalogPage() {
@@ -21,7 +19,6 @@ export default function CatalogPage() {
   const [shoundUpdateCache, setShoundUpdateCache] = useState(false);
   const [status, setStatus] = useState('fullfield');
 
-  // first init
   useEffect(() => {
     (async () => {
       setStatus('pending');
@@ -43,7 +40,6 @@ export default function CatalogPage() {
     })();
   }, []);
 
-  // pagination
   useEffect(() => {
     if (page !== 1 && !isSearchActive) {
       (async () => {
@@ -62,7 +58,6 @@ export default function CatalogPage() {
     }
   }, [isSearchActive, page]);
 
-  // Search pagination
   useEffect(() => {
     (async () => {
       if (isSearchActive) {
@@ -75,13 +70,11 @@ export default function CatalogPage() {
     })();
   }, [isSearchActive, page, searchData, shoundUpdateCache]);
 
-  // modal opener
   const openModal = id => {
     setShowModal(true);
     setCarId(id);
   };
 
-  //handle search
   function handleSearch(data) {
     setSearchData(data);
     setPage(1);
@@ -134,7 +127,9 @@ export default function CatalogPage() {
       )}
       {adverts && adverts.length === 0 && (
         <div className={css.divTitle}>
-          <p className={css.favTitle}>You don't have favorite cards yet</p>
+          <p className={css.favTitle}>
+            Unfortunately the directory is currently empty
+          </p>
         </div>
       )}
       {showModal && (

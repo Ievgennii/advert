@@ -1,12 +1,8 @@
 import { Suspense } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import css from './SharedLayout.module.css';
-// import NavMenu from './NavMenu';
-// import MenuIcon from './MenuIcon';
 
 const SharedLayout = () => {
-  // const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   return (
     <section>
       <div className={css.section}>

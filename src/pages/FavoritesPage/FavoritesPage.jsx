@@ -14,7 +14,6 @@ export default function FavoritesPage() {
   const [likeChangd, setLikeChanged] = useState(true);
   const [status, setStatus] = useState('fullfield');
 
-  //initialize
   useEffect(() => {
     (async () => {
       setStatus('pending');
@@ -24,7 +23,6 @@ export default function FavoritesPage() {
     })();
   }, []);
 
-  //refresh
   useEffect(() => {
     (async () => {
       setStatus('pending');
@@ -34,7 +32,6 @@ export default function FavoritesPage() {
     })();
   }, [likeChangd]);
 
-  // pagination
   useEffect(() => {
     if (page !== 1) {
       (async () => {

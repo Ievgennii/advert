@@ -2,13 +2,17 @@ import css from './ModalCard.module.css';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import * as API from '../../../services/carsApi';
-
-import { getCity, getCountry, arrayFromString, formatMillage } from 'utils/formatAdress';
-import closeIcon from '../../../assets/closeIcon.svg'
+import {
+  getCity,
+  getCountry,
+  arrayFromString,
+  formatMillage,
+} from 'utils/formatAdress';
+import closeIcon from '../../../assets/closeIcon.svg';
 export default function ModalCard({ id, closeModal }) {
   const [carInfo, setCarInfo] = useState(null);
   const [status, setStatus] = useState('pending');
- 
+
   useEffect(() => {
     (async () => {
       setStatus('pending');
@@ -40,10 +44,15 @@ export default function ModalCard({ id, closeModal }) {
       type,
       accessories,
     } = carInfo;
-   
+
     return (
       <article className={css.modalBody} tittle={rentalCompany}>
-        <img src={closeIcon} alt="Close Button" className={css.closeBtn} onClick={closeModal}/>
+        <img
+          src={closeIcon}
+          alt="Close Button"
+          className={css.closeBtn}
+          onClick={closeModal}
+        />
         <div className={css.imageContainer}>
           <img src={img} alt="CarImage" className={css.image} loading="lazy" />
         </div>
@@ -66,29 +75,46 @@ export default function ModalCard({ id, closeModal }) {
         <p className={css.desription}>{description}</p>
         <h3 className={css.subTitle}>Accessories and functionalities: </h3>
         <ul className={css.feautersList}>
-          {[...functionalities,...accessories ].map((item, index) => (
+          {[...functionalities, ...accessories].map((item, index) => (
             <li key={index}>{item}</li>
           ))}
- 
         </ul>
         <h3 className={css.subTitle}>Rental Conditions:</h3>
         <ul className={css.rentalDetails}>
           {arrayFromString(rentalConditions).map((item, index) => {
             if (item.includes(':')) {
               return (
-                <li key={index}> {item.split(':')[0]}: <span className={css.blued}>{item.split(':')[1]}</span> </li>
+                <li key={index}>
+                  {' '}
+                  {item.split(':')[0]}:{' '}
+                  <span className={css.blued}>{item.split(':')[1]}</span>{' '}
+                </li>
               );
             } else {
               return <li key={index}>{item}</li>;
             }
           })}
 
-          <li> Mileage: <span className={css.blued}>{formatMillage(mileage)}</span> </li>
-          <li> Price: <span className={css.blued}>{rentalPrice}</span> </li>
+          <li>
+            {' '}
+            Mileage: <span className={css.blued}>
+              {formatMillage(mileage)}
+            </span>{' '}
+          </li>
+          <li>
+            {' '}
+            Price: <span className={css.blued}>{rentalPrice}</span>{' '}
+          </li>
         </ul>
-        <Link  className="button-primary btn-rent" data-rel="external" to="tel:+380730000000" target="blank">Rental car</Link>
+        <Link
+          className="button-primary btn-rent"
+          data-rel="external"
+          to="tel:+380730000000"
+          target="blank"
+        >
+          Rental car
+        </Link>
       </article>
     );
   }
 }
-
