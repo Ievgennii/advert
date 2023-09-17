@@ -132,6 +132,11 @@ export default function CatalogPage() {
           </button>
         </div>
       )}
+      {adverts && adverts.length === 0 && (
+        <div className={css.divTitle}>
+          <p className={css.favTitle}>You don't have favorite cards yet</p>
+        </div>
+      )}
       {showModal && (
         <Modal onClose={() => setShowModal(prev => !prev)} active={showModal}>
           <ModalCard

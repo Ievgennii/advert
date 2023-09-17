@@ -47,6 +47,20 @@
   justify-content: center;
   padding-bottom: 150px;
 }
+.divTitle {
+  display: flex;
+  justify-content: center;
+}
+.favTitle {
+  font-size: 36px;
+  line-height: 30px;
+  font-weight: 800;
+  position: relative;
+  top: 70px;
+
+  letter-spacing: 1.1px;
+  color: #252525;
+}
 
 @keyframes shimmer {
   100% {
